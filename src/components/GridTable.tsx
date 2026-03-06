@@ -1,6 +1,6 @@
 import { AgGridReact } from "ag-grid-react";
 import type { ColDef, GridApi } from "ag-grid-community";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import type { Employee } from "../types";
 
 interface Props {
