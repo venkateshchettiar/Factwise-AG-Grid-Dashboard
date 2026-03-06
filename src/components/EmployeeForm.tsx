@@ -56,12 +56,14 @@ export default function EmployeeForm({
     <div className="modal-overlay">
       <div className="modal">
         <h2>{initialData ? "Edit Employee" : "Add New Employee"}</h2>
+        
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name *</label>
             <input
               id="name"
               type="text"
+              placeholder="John Doe"
               value={formData.name || ""}
               onChange={(e) => handleChange("name", e.target.value)}
               className={getFieldError("name") ? "error" : ""}
@@ -76,6 +78,7 @@ export default function EmployeeForm({
             <input
               id="country"
               type="text"
+              placeholder="United States"
               value={formData.country || ""}
               onChange={(e) => handleChange("country", e.target.value)}
               className={getFieldError("country") ? "error" : ""}
@@ -93,6 +96,7 @@ export default function EmployeeForm({
                 type="number"
                 min="18"
                 max="80"
+                placeholder="25"
                 value={formData.age || 25}
                 onChange={(e) => handleChange("age", e.target.value)}
                 className={getFieldError("age") ? "error" : ""}
@@ -108,6 +112,7 @@ export default function EmployeeForm({
                 id="salary"
                 type="number"
                 min="0"
+                placeholder="50000"
                 value={formData.salary || 50000}
                 onChange={(e) => handleChange("salary", e.target.value)}
                 className={getFieldError("salary") ? "error" : ""}

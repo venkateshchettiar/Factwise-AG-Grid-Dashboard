@@ -1,46 +1,45 @@
 interface Props {
-    onSearch: (value: string) => void;
-    onExport: () => void;
-    onAddEmployee: () => void;
-    onResetData: () => void;
-    employeeCount: number;
+  onSearch: (value: string) => void;
+  onExport: () => void;
+  onAddEmployee: () => void;
+  onResetData: () => void;
+  employeeCount: number;
 }
 
 export default function Toolbar({
-    onSearch,
-    onExport,
-    onAddEmployee,
-    onResetData,
-    employeeCount
+  onSearch,
+  onExport,
+  onAddEmployee,
+  onResetData,
+  employeeCount
 }: Props) {
+  return (
+    <div className="toolbar">
+      <div className="toolbar-left">
+        <input
+          placeholder="Search by name, country, age, salary..."
+          onChange={(e) => onSearch(e.target.value)}
+          className="search-input"
+        />
+      </div>
 
-    return (
-        <div className="toolbar">
+      <div className="toolbar-right">
+        <button onClick={onAddEmployee} className="btn-primary" title="Add new employee">
+          + Add Employee
+        </button>
 
-            <input
-                placeholder="Search employees..."
-                onChange={(e) => onSearch(e.target.value)}
-                className="search-input"
-            />
+        <button onClick={onExport} className="btn-secondary" title="Export data to CSV">
+          Export CSV
+        </button>
 
-            <div className="toolbar-buttons">
-                <button onClick={onAddEmployee} className="btn-primary">
-                    + Add Employee
-                </button>
+        <button onClick={onResetData} className="btn-danger" title="Reset to default data">
+          Reset Data
+        </button>
 
-                <button onClick={onExport} className="btn-secondary">
-                    ⬇ Export CSV
-                </button>
-
-                <button onClick={onResetData} className="btn-danger">
-                    ↻ Reset Data
-                </button>
-
-                <span className="employee-count">
-                    Total: {employeeCount}
-                </span>
-            </div>
-
-        </div>
-    );
+        <span className="employee-count">
+          {employeeCount} Total
+        </span>
+      </div>
+    </div>
+  );
 }
